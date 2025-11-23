@@ -1,0 +1,5 @@
+﻿Users/
+node_modules/.cache/
+.expo/
+.git/
+*.log
