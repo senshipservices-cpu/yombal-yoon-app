@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, Href } from 'expo-router';
 import { Menu, X } from 'lucide-react-native';
 import { useState } from 'react';
 
 export function PublicHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const NavLink = ({ href, children }: { href: string; children: string }) => (
+  const NavLink = ({ href, children }: { href: Href; children: string }) => (
     <Link href={href} asChild>
       <TouchableOpacity style={styles.navLink}>
         <Text style={styles.navLinkText}>{children}</Text>

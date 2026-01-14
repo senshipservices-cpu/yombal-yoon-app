@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Platform } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
-SplashScreen.preventAutoHideAsync();
+if (Platform.OS !== 'web') {
+  SplashScreen.preventAutoHideAsync();
+}
 
 export function useFrameworkReady() {
   const [isReady, setIsReady] = useState(false);
@@ -14,7 +17,9 @@ export function useFrameworkReady() {
         console.warn(e);
       } finally {
         setIsReady(true);
-        await SplashScreen.hideAsync();
+        if (Platform.OS !== 'web') {
+          await SplashScreen.hideAsync();
+        }
       }
     }
 
